@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<plugin id="cordova-plugin-recieveActivity" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+ xmlns:android="http://schemas.android.com/apk/res/android">
+
+<name>RecieveActivity</name>
+
+<js-module name="RecieveActivity" src="www/RecieveActivity.js">
+<clobbers target="cordova.plugins.RecieveActivity" />
+</js-module><platform name="android">
+
+<config-file parent="/*" target="res/xml/config.xml">
+<feature name="RecieveActivity">
+<param name="android-package" value="cordova-plugin-recieveActivity.RecieveActivity" />
+</feature>
+</config-file>
+
+<config-file parent="/*" target="AndroidManifest.xml">
+	<uses-permission android:name="android.permission.INTERNET" />
+	<activity android:name="iac.polimi.ob1" android:label="@string/appName">
+		<intent-filter>
+			<action android:name="android.intent.action.VIEW" />
+			<category android:name="android.intent.category.DEFAULT" />
+			<data android:schema="iac.polimi.ob1" />
+		</intent-filter>
+	</activity>
+</config-file>
+
+<source-file src="src/android/RecieveActivity.java" target-dir="src/cordova-plugin-recieveActivity/RecieveActivity" />
+
+</platform></plugin>
